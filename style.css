@@ -1,0 +1,148 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #00bcd4;
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+    --light-text: #e0e0e0;
+    --medium-text: #a0a0a0;
+    --font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --header-height: 70px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+img, svg, video, iframe { max-width: 100%; height: auto; }
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    direction: rtl;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3 { line-height: 1.2; font-weight: 700; }
+a { text-decoration: none; color: var(--primary-color); }
+
+.section-title { font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: var(--primary-color); }
+section { padding: 80px 0; }
+
+/* --- Buttons --- */
+.btn { display: inline-block; padding: 12px 28px; border-radius: 50px; font-weight: bold; transition: all 0.3s ease; border: 2px solid transparent; text-align: center; }
+.btn-primary { background-color: var(--primary-color); color: #fff; }
+.btn-primary:hover { background-color: transparent; color: var(--primary-color); border-color: var(--primary-color); }
+.btn-secondary { background-color: transparent; color: #fff; border-color: #fff; }
+.btn-secondary:hover { background-color: #fff; color: var(--dark-bg); }
+
+/* --- Preloader --- */
+#preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--dark-bg); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease; will-change: opacity; pointer-events: none; }
+.spinner { width: 50px; height: 50px; border: 5px solid var(--dark-surface); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- Header & Navigation --- */
+.main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(30, 30, 30, 0.8); backdrop-filter: blur(10px); transition: background-color 0.3s ease; }
+.navbar { height: var(--header-height); display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1200px; margin: 0 auto; }
+.nav-logo { font-size: 1.5rem; font-weight: bold; color: #fff; }
+.nav-menu { display: flex; list-style: none; gap: 30px; }
+.nav-link { color: var(--light-text); transition: color 0.3s ease; }
+.nav-link:hover { color: var(--primary-color); }
+.hamburger { display: none; cursor: pointer; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
+
+.nav-controls { display: flex; align-items: center; gap: 15px; }
+.lang-btn { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 5px; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.lang-btn:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--primary-color); transform: translateY(-1px); }
+.lang-btn img { width: 28px; height: 18px; object-fit: cover; border-radius: 3px; display: block; }
+
+/* --- Hero Section --- */
+.hero-section { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; color: #fff; position: relative; overflow: hidden; padding: 15px; }
+.hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('images/hero-landscape.jpg') no-repeat center center/cover; animation: zoomIn 20s infinite alternate; z-index: -2; }
+.hero-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: -1; }
+@keyframes zoomIn { from { transform: scale(1); } to { transform: scale(1.1); } }
+.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem; }
+.hero-cta .btn { margin: 0 10px; }
+
+/* --- About Section --- */
+.about-section { background-color: var(--dark-surface); }
+.about-content { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.about-image { width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 5px solid var(--primary-color); }
+.about-image img { width: 100%; height: 100%; object-fit: cover; }
+.about-text { text-align: center; }
+.about-text p { color: var(--medium-text); margin-bottom: 20px; }
+.skills { margin-top: 30px; }
+.skill-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
+.skill-tag { background-color: var(--dark-bg); padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; border: 1px solid var(--primary-color); color: var(--light-text); }
+
+/* --- Contact Section --- */
+.contact-section { background-color: var(--dark-surface); }
+.contact-wrapper { display: grid; grid-template-columns: 1fr; gap: 50px; }
+.contact-info h3 { margin-bottom: 20px; font-size: 1.5rem; }
+.contact-info p { color: var(--medium-text); margin-bottom: 30px; }
+.social-links { list-style: none; }
+.social-links li { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.social-links a { color: var(--light-text); transition: color 0.3s ease; }
+.social-links a:hover { color: var(--primary-color); }
+.social-links svg { flex-shrink: 0; }
+.social-links li:hover svg { stroke: var(--primary-color); }
+.social-links li:hover svg path { fill: var(--primary-color); }
+
+/* --- Footer --- */
+.main-footer { text-align: center; padding: 30px 20px; background-color: var(--dark-bg); color: var(--medium-text); border-top: 1px solid var(--dark-surface); }
+.main-footer .container { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+/* --- Portfolio Section Styles --- */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.portfolio-card { background-color: var(--dark-surface); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
+.portfolio-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+.portfolio-icon { width: 60px; height: 60px; object-fit: cover; border-radius: 12px; background-color: var(--dark-bg); padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+.portfolio-card .portfolio-header svg { width: 60px; height: 60px; object-fit: contain; border-radius: 12px; background-color: var(--dark-bg); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+.status-badge { font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; }
+.status-dev { background-color: rgba(255, 193, 7, 0.15); color: #ffc107; }
+.status-done { background-color: rgba(0, 188, 212, 0.15); color: #00bcd4; }
+.portfolio-content { flex-grow: 1; display: flex; flex-direction: column; }
+.portfolio-content h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--light-text); }
+.portfolio-content p { font-size: 0.9rem; color: var(--medium-text); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+.tech-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.tech-tag { background-color: var(--dark-bg); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--medium-text); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; }
+.portfolio-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.portfolio-actions a { text-decoration: none; font-size: 0.85rem; padding: 0.5rem 1rem; border-radius: 6px; transition: all 0.2s ease; text-align: center; flex: 1; min-width: 100px; }
+.portfolio-actions .btn-primary { background-color: var(--primary-color); color: #fff; }
+.portfolio-actions .btn-primary:hover { background-color: #0097a7; }
+.portfolio-actions .btn-outline { background-color: transparent; color: var(--light-text); border: 1px solid rgba(255, 255, 255, 0.2); }
+.portfolio-actions .btn-outline:hover { background-color: rgba(255, 255, 255, 0.05); border-color: var(--primary-color); color: var(--primary-color); }
+
+/* --- AOS Animations --- */
+[data-aos] { opacity: 0; transition-property: transform, opacity; }
+[data-aos].aos-animate { opacity: 1; }
+[data-aos="fade-up"] { transform: translateY(50px); }
+[data-aos="fade-up"].aos-animate { transform: translateY(0); }
+[data-aos="fade-down"] { transform: translateY(-50px); }
+[data-aos="fade-down"].aos-animate { transform: translateY(0); }
+[data-aos="fade-right"] { transform: translateX(-50px); }
+[data-aos="fade-right"].aos-animate { transform: translateX(0); }
+[data-aos="fade-left"] { transform: translateX(50px); }
+[data-aos="fade-left"].aos-animate { transform: translateX(0); }
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+    .about-content { flex-direction: row; gap: 60px; }
+    .about-image { flex-shrink: 0; }
+    .about-text { text-align: right; }
+    .skills { margin-top: 40px; }
+    .skill-tags { justify-content: flex-start; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .nav-menu { position: fixed; right: -100%; top: var(--header-height); flex-direction: column; background-color: var(--dark-surface); width: 100%; text-align: center; transition: 0.3s; gap: 0; }
+    .nav-menu.active { right: 0; }
+    .nav-item { padding: 1.5rem 0; }
+    .hamburger { display: block; }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .hero-content h1 { font-size: 2.5rem; }
+}
