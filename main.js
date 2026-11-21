@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.style.opacity = '0';
-            setTimeout(() => preloader.remove(), 300);
-        });
-    }
-
     setupNavigation();
     setupScrollLinks();
     observeAos(document.querySelectorAll('[data-aos]'));
